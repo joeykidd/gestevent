@@ -1,0 +1,1 @@
+export const concatZoneIdToMoment = (moment, zoneId) => `${moment}[${zoneId}]`;

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gestevent-front-service
+  namespace: gestevent
+spec:
+  ports:
+    - port: 3000
+      targetPort: 80
+  selector:
+    app: gestevent-front
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gestevent-api-service
+  namespace: gestevent
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: gestevent-api

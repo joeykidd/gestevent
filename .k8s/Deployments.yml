@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gestevent-front-deployment
+  namespace: gestevent
+  labels:
+    app: gestevent-front
+spec:
+  selector:
+    matchLabels:
+      app: gestevent-front
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gestevent-front
+    spec:
+      containers:
+        - name: front
+          image: joeykidd/gestevent-front
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gestevent-api-deployment
+  namespace: gestevent
+  labels:
+    app: gestevent-api
+spec:
+  selector:
+    matchLabels:
+      app: gestevent-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gestevent-api
+    spec:
+      containers:
+        - name: front
+          image: joeykidd/gestevent-api
+          ports:
+            - containerPort: 8080
